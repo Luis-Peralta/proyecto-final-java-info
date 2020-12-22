@@ -2,14 +2,14 @@ package com.finalinfo.models;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "usuarios")
 public class UserModel {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+	//atributos
+    @Id //aplica id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincrementa
     private Long id;
 	private String nombre;
 	private String apellido;
@@ -22,6 +22,11 @@ public class UserModel {
 	private String provincia;
 	private String pais;
 
+	//relacion
+	@OneToMany
+	private List<PostModel> post;
+
+	// getters and setters
 	public Long getId() {
 		return id;
 	}
@@ -92,5 +97,31 @@ public class UserModel {
 
 	public void setPais(String pais) {
 		this.pais = pais;
+	}
+
+	public List<PostModel> getPost() {
+		return post;
+	}
+
+	public void setPost(List<PostModel> post) {
+		this.post = post;
+	}
+
+	public UserModel(Long id, String nombre, String apellido, String email, String password, Date alta, String ciudad, String provincia, String pais, List<PostModel> post) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.password = password;
+		this.alta = alta;
+		this.ciudad = ciudad;
+		this.provincia = provincia;
+		this.pais = pais;
+		this.post = post;
+	}
+
+	public UserModel() {
+		super();
 	}
 }

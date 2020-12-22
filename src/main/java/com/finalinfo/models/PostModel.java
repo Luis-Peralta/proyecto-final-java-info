@@ -1,21 +1,34 @@
 package com.finalinfo.models;
+import org.apache.catalina.User;
+
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
-@Table(name = "Post")
+@Table(name = "Posts")
 public class PostModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
+    //atributos
     private Long id;
     private String titulo;
     private String descripcion;
     private String contenido;
     private Date creacion;
-    private String usuario;
     private boolean publicado;
 
+    //relaciones
+    //con usuario:
+    @ManyToOne
+    @JoinColumn(name = "autor", referencedColumnName = "id")
+    private UserModel autor;
+    //con comentario:
+    @OneToMany
+    private List<CommentModel> comment;
+
+    // getters and setters
     public Long getId() {
         return id;
     }
@@ -56,19 +69,44 @@ public class PostModel {
         this.creacion = creacion;
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
     public boolean isPublicado() {
         return publicado;
     }
 
     public void setPublicado(boolean publicado) {
         this.publicado = publicado;
+    }
+
+    public UserModel getUser() {
+        return autor;
+    }
+
+    public void setUser(UserModel user) {
+        this.autor = user;
+    }
+
+    public List<CommentModel> getComment() {
+        return comment;
+    }
+
+    public void setComment(List<CommentModel> comment) {
+        this.comment = comment;
+    }
+
+    //Constructores
+    public PostModel(Long id, String titulo, String descripcion, String contenido, Date creacion, String usuario, boolean publicado, UserModel autor, List<CommentModel> comment) {
+        super();
+        this.id = id;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.contenido = contenido;
+        this.creacion = creacion;
+        this.publicado = publicado;
+        this.autor = autor;
+        this.comment = comment;
+    }
+
+    public PostModel() {
+        super();
     }
 }
