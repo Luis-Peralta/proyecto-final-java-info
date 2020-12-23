@@ -1,8 +1,13 @@
 package com.finalinfo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+//import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "usuarios")
@@ -10,21 +15,28 @@ public class UserModel {
 	//atributos
     @Id //aplica id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincrementa
-    private Long id;
+	private Long id;
+	@NotNull
 	private String nombre;
+	@NotNull
 	private String apellido;
 	@Column(unique = true, nullable = false)
 	private String email;
+	//oculta el password al realizar el get
+	@JsonIgnore
 	private String password;
 	@Column(name = "fecha_alta")
-	private Date alta;
+	private LocalDate creationDate = LocalDate.now();
 	private String ciudad;
 	private String provincia;
 	private String pais;
 
-	//relacion
+	//relacion con post
 	@OneToMany
 	private List<PostModel> post;
+	//relacion con comentario
+	@OneToMany
+	private List<CommentModel> comment;
 
 	// getters and setters
 	public Long getId() {
@@ -67,12 +79,12 @@ public class UserModel {
 		this.password = password;
 	}
 
-	public Date getAlta() {
-		return alta;
+	public LocalDate getCreationDate() {
+		return creationDate;
 	}
 
-	public void setAlta(Date alta) {
-		this.alta = alta;
+	public void setCreationDate(LocalDate creationDate) {
+		this.creationDate = creationDate;
 	}
 
 	public String getCiudad() {
@@ -107,18 +119,27 @@ public class UserModel {
 		this.post = post;
 	}
 
-	public UserModel(Long id, String nombre, String apellido, String email, String password, Date alta, String ciudad, String provincia, String pais, List<PostModel> post) {
+	public List<CommentModel> getComment() {
+		return comment;
+	}
+
+	public void setComment(List<CommentModel> comment) {
+		this.comment = comment;
+	}
+
+	public UserModel(Long id, @NotNull String nombre, @NotNull String apellido, String email, String password, LocalDate creationDate, String ciudad, String provincia, String pais, List<PostModel> post, List<CommentModel> comment) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
 		this.password = password;
-		this.alta = alta;
+		this.creationDate = creationDate;
 		this.ciudad = ciudad;
 		this.provincia = provincia;
 		this.pais = pais;
 		this.post = post;
+		this.comment = comment;
 	}
 
 	public UserModel() {

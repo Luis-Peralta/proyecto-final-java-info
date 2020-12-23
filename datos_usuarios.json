@@ -1,0 +1,67 @@
+//creacion de usuarios con metodo post:
+[
+	{
+		"nombre":"Luis",
+		"apellido":"Peralta",
+		"email":"luis@gmail.com",
+		"password":"1234",
+		"ciudad":"Resistencia",
+		"provincia":"Chaco",
+		"pais":"Argentina"
+	},
+	{
+		"nombre":"Juan",
+		"apellido":"Pablo",
+		"email":"juan@gmail.com",
+		"password":"123445",
+		"ciudad":"Resistencia",
+		"provincia":"Chaco",
+		"pais":"Argentina"
+	},
+	{
+		"nombre":"Ricardo",
+		"apellido":"Perez",
+		"email":"ricardo@gmail.com",
+		"password":"1245479",
+		"ciudad":"Resistencia",
+		"provincia":"Chaco",
+		"pais":"Argentina"
+	},
+	{
+		"nombre":"Manuel",
+		"apellido":"Gomez",
+		"email":"manuel@hotmail.com",
+		"password":"1235",
+		"ciudad":"Corrientes",
+		"provincia":"Corrientes",
+		"pais":"Argentina"
+	},
+	{
+		"nombre": "federico",
+		"apellido": "tavarez",
+		"email": "fede_123@hotmail.com",
+		"password":"123444",
+		"ciudad": "Barranqueras",
+		"provincia": "Chaco",
+		"pais": "Argentina"
+	  }
+]
+
+/*metodo get para ver todos los usuarios: 
+localhost:8080/api/v1/users
+
+metodo put para actualizar usuario:
+localhost:8080/api/v1/users/{id} y pasar valores
+
+para delete:
+Poner en delete y colocar el id a eliminar --> localhost:8080/api/v1/users/6
+
+
+PARA BUSQUEDA SEGUN CIUDAD:
+localhost:8080/api/v1/users/ciudad?ciudad=Resistencia
+
+PARA BUSQUEDA SEGUN FECHA:
+localhost:8080/api/v1/users/fecha?filter=2020-12-23
+
+*/
+

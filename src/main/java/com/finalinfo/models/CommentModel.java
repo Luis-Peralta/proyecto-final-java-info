@@ -2,6 +2,7 @@ package com.finalinfo.models;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Comentarios")
@@ -10,9 +11,8 @@ public class CommentModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
-    private String autor;
     @Column(name = "comentario_alta")
-    private Date creacionComent;
+    private LocalDate creacionComent = LocalDate.now();
     @Column(length = 20)
     private String comentario;
 
@@ -20,6 +20,10 @@ public class CommentModel {
     @ManyToOne
     @JoinColumn(name = "post", referencedColumnName = "id")
     private PostModel post;
+
+    //relacion con usuario:
+    @ManyToOne
+    private UserModel autor;
 
 
     // getters and setters
@@ -31,19 +35,12 @@ public class CommentModel {
         this.id = id;
     }
 
-    public String getAutor() {
-        return autor;
-    }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
-
-    public Date getCreacionComent() {
+    public LocalDate getCreacionComent() {
         return creacionComent;
     }
 
-    public void setCreacionComent(Date creacionComent) {
+    public void setCreacionComent(LocalDate creacionComent) {
         this.creacionComent = creacionComent;
     }
 
@@ -63,14 +60,22 @@ public class CommentModel {
         this.post = post;
     }
 
+    public UserModel getAutor() {
+        return autor;
+    }
+
+    public void setAutor(UserModel autor) {
+        this.autor = autor;
+    }
+
     //Constructores
-    public CommentModel(Long id, String autor, Date creacionComent, String comentario, PostModel post) {
+    public CommentModel(Long id, LocalDate creacionComent, String comentario, PostModel post, UserModel autor) {
         super();
         this.id = id;
-        this.autor = autor;
         this.creacionComent = creacionComent;
         this.comentario = comentario;
         this.post = post;
+        this.autor = autor;
     }
 
     public CommentModel() {

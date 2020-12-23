@@ -3,6 +3,7 @@ import org.apache.catalina.User;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -16,7 +17,8 @@ public class PostModel {
     private String titulo;
     private String descripcion;
     private String contenido;
-    private Date creacion;
+    @Column(name = "creacion_post")
+    private LocalDate creacion = LocalDate.now();
     private boolean publicado;
 
     //relaciones
@@ -61,12 +63,20 @@ public class PostModel {
         this.contenido = contenido;
     }
 
-    public Date getCreacion() {
+    public LocalDate getCreacion() {
         return creacion;
     }
 
-    public void setCreacion(Date creacion) {
+    public void setCreacion(LocalDate creacion) {
         this.creacion = creacion;
+    }
+
+    public UserModel getAutor() {
+        return autor;
+    }
+
+    public void setAutor(UserModel autor) {
+        this.autor = autor;
     }
 
     public boolean isPublicado() {
@@ -94,7 +104,7 @@ public class PostModel {
     }
 
     //Constructores
-    public PostModel(Long id, String titulo, String descripcion, String contenido, Date creacion, String usuario, boolean publicado, UserModel autor, List<CommentModel> comment) {
+    public PostModel(Long id, String titulo, String descripcion, String contenido, LocalDate creacion, String usuario, boolean publicado, UserModel autor, List<CommentModel> comment) {
         super();
         this.id = id;
         this.titulo = titulo;

@@ -1,6 +1,8 @@
 package com.finalinfo.services;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import com.finalinfo.models.UserModel;
 import com.finalinfo.repositories.UsuarioRepository;
@@ -16,6 +18,7 @@ public class UsuarioService {
         return (ArrayList<UserModel>) usuarioRepository.findAll();
     }
 
+
     public UserModel guardarUsuario(UserModel usuario){
         return usuarioRepository.save(usuario);
     }
@@ -23,6 +26,12 @@ public class UsuarioService {
     public Optional<UserModel> obtenerPorId(Long id){
         return usuarioRepository.findById(id);
     }
+
+    public ArrayList<UserModel> obtenerPorCiudad(String ciudad){
+        return usuarioRepository.findByCiudad(ciudad);
+    }
+
+
 
 //    public ArrayList<UserModel> obtenerPorPrioridad(Integer prioridad){
 //        return usuarioRepository.findByPrioridad(prioridad);
