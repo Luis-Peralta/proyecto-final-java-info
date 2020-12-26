@@ -1,5 +1,6 @@
 package com.finalinfo.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.apache.catalina.User;
 
 import javax.persistence.*;
@@ -28,7 +29,7 @@ public class PostModel {
     @ManyToOne
     @JoinColumn(name = "autor", referencedColumnName = "id")
     @NotNull
-    @JsonIgnore
+    @JsonIgnoreProperties({"email","creationDate","ciudad","provincia","pais"})
     private UserModel autor;
     //con comentario:
     @OneToMany
@@ -76,14 +77,6 @@ public class PostModel {
         this.creacion = creacion;
     }
 
-    public UserModel getAutor() {
-        return autor;
-    }
-
-    public void setAutor(UserModel autor) {
-        this.autor = autor;
-    }
-
     public boolean isPublicado() {
         return publicado;
     }
@@ -92,12 +85,12 @@ public class PostModel {
         this.publicado = publicado;
     }
 
-    public UserModel getUser() {
+    public UserModel getAutor() {
         return autor;
     }
 
-    public void setUser(UserModel user) {
-        this.autor = user;
+    public void setAutor(UserModel autor) {
+        this.autor = autor;
     }
 
     public List<CommentModel> getComment() {
@@ -109,7 +102,7 @@ public class PostModel {
     }
 
     //Constructores
-    public PostModel(Long id, String titulo, String descripcion, String contenido, LocalDate creacion, String usuario, boolean publicado, UserModel autor, List<CommentModel> comment) {
+    public PostModel(Long id, String titulo, String descripcion, String contenido, LocalDate creacion, boolean publicado, UserModel autor, List<CommentModel> comment) {
         super();
         this.id = id;
         this.titulo = titulo;

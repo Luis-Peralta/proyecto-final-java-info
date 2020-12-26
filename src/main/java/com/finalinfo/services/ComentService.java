@@ -38,5 +38,10 @@ public class ComentService {
         }
     }
 
+    //para traer los comentarios de un post:
+//    public ArrayList<CommentModel> obtenerCommentByPost(Long id){
+//          return (ArrayList<CommentModel>) commentRepository.findByPost(id);
+//    }
+
 
 }

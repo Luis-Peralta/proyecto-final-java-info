@@ -1,8 +1,10 @@
+//Creacion de comentarios con metodo post:
+
 [
     
 {
 	"comentario":"buen blog",
-	"autor":{
+	"autor_comentario":{
 		"id":2
     },
     "post":{
@@ -10,8 +12,44 @@
 	}
 },
 {
+	"comentario":"buen comentario, gracias!",
+	"autor_comentario":{
+		"id":1
+    },
+    "post":{
+		"id":2
+	}
+},
+{
+	"comentario":"buen comentario, graciasx2!",
+	"autor_comentario":{
+		"id":1
+    },
+    "post":{
+		"id":2
+	}
+},
+{
+	"comentario":"buen comentario, gracias!",
+	"autor_comentario":{
+		"id":1
+    },
+    "post":{
+		"id":2
+	}
+},
+{
+	"comentario":"buena publicacion, te escribo al privado, gracias",
+	"autor_comentario":{
+		"id":5
+    },
+    "post":{
+		"id":2
+	}
+},
+{
 	"comentario":"a que precio?",
-	"autor":{
+	"autor_comentario":{
 		"id":3
     },
     "post":{
@@ -20,7 +58,7 @@
 },
 {
 	"comentario":"te escribo al privado",
-	"autor":{
+	"autor_comentario":{
 		"id":1
     },
     "post":{
@@ -29,3 +67,22 @@
 }
 
 ]
+
+/*
+CRUD
+metodo get para ver todos los comentarios: 
+localhost:8080/api/v1/posts/comments
+
+metodo put para actualizar comentario:
+localhost:8080/api/v1/posts/comments/{id} y pasar valores
+
+para delete:
+Poner en delete y colocar el id a eliminar --> localhost:8080/api/v1/posts/comments/{id}
+
+PARA TREAR LOS COMENTARIOS DE UN POST:
+localhost:8080/api/v1/posts/comments/post/{id del post}
+
+PARA FILTRAR POR CANTIDAD DE COMENTARIOS:
+localhost:8080/api/v1/posts/comments/post/2/valor?l={cantidad a filtrar}
+
+*/

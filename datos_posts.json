@@ -59,7 +59,12 @@ localhost:8080/api/v1/posts/{id} y pasar valores
 para delete:
 Poner en delete y colocar el id a eliminar --> localhost:8080/api/v1/posts/{id}
 
+PARA VER TODOS LOS POSTS NO PUBLICADOS:
+localhost:8080/api/v1/posts/no-publicado
 
+
+PARA BUSCAR POR UNA PALABRA EN EL TITULO:
+localhost:8080/api/v1/posts/titulo?filter={palabra}
 
 */
 

@@ -68,5 +68,10 @@ public class PostController {
         return postService.obtenerNoPublicado();
     }
 
+    //para buscar por palabra en titulo:
+    @GetMapping(path= "/titulo")
+    public ArrayList<PostModel> obtenerPorTitulo(@RequestParam("filter") String titulo){
+        return this.postService.obtenerPorTitulo(titulo);
+    }
 
 }

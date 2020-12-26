@@ -2,6 +2,7 @@ package com.finalinfo.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -30,9 +31,10 @@ public class CommentModel {
 
     //relacion con usuario:
     @ManyToOne
-    @JoinColumn(name = "autor", referencedColumnName = "id")
+    @JoinColumn(name = "autor_comentario", referencedColumnName = "id")
     @JsonIgnoreProperties({"apellido","email","creationDate","ciudad","provincia","pais"})
     @NotNull(message = "El comentario necesita un usuario!")
+    @JsonProperty("autor_comentario")
     private UserModel autor;
 
 

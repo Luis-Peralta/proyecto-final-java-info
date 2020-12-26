@@ -30,6 +30,11 @@ public class PostService {
         return (ArrayList<PostModel>) postRepository.findByPublicadoFalse();
     }
 
+    //para buscar por titulo:
+    public ArrayList<PostModel> obtenerPorTitulo(String titulo){
+        return (ArrayList<PostModel>) postRepository.findByTituloContaining(titulo);
+    }
+
     //para trear todos los post:
     public ArrayList<PostModel> obtenerPost(){
         return (ArrayList<PostModel>) postRepository.findAll();
