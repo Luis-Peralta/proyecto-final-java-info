@@ -83,6 +83,6 @@ PARA TREAR LOS COMENTARIOS DE UN POST:
 localhost:8080/api/v1/posts/comments/post/{id del post}
 
 PARA FILTRAR POR CANTIDAD DE COMENTARIOS:
-localhost:8080/api/v1/posts/comments/post/2/valor?l={cantidad a filtrar}
+localhost:8080/api/v1/posts/comments/post/{id del post}/valor?l={cantidad a filtrar}
 
 */
