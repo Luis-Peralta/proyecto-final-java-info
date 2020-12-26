@@ -53,6 +53,9 @@ CRUD
 metodo get para ver todos los posts: 
 localhost:8080/api/v1/posts
 
+para ver posts por id:
+GET --> localhost:8080/api/v1/posts/{id}
+
 metodo put para actualizar post:
 localhost:8080/api/v1/posts/{id} y pasar valores
 
