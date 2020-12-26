@@ -1,6 +1,7 @@
 package com.finalinfo.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -22,8 +23,6 @@ public class UserModel {
 	private String apellido;
 	@Column(unique = true, nullable = false)
 	private String email;
-	//oculta el password al realizar el get
-	@JsonIgnore
 	private String password;
 	@Column(name = "fecha_alta")
 	private LocalDate creationDate = LocalDate.now();
@@ -73,10 +72,14 @@ public class UserModel {
 		this.email = email;
 	}
 
+	//para ocultar password en el get
+	@JsonIgnore
 	public String getPassword() {
 		return password;
 	}
 
+	//para guardar password en la base de datos
+	@JsonProperty
 	public void setPassword(String password) {
 		this.password = password;
 	}
