@@ -1,0 +1,31 @@
+[
+    
+{
+	"comentario":"buen blog",
+	"autor":{
+		"id":2
+    },
+    "post":{
+		"id":2
+	}
+},
+{
+	"comentario":"a que precio?",
+	"autor":{
+		"id":3
+    },
+    "post":{
+		"id":2
+	}
+},
+{
+	"comentario":"te escribo al privado",
+	"autor":{
+		"id":1
+    },
+    "post":{
+		"id":4
+	}
+}
+
+]

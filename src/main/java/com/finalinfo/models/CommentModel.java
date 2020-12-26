@@ -1,6 +1,11 @@
 package com.finalinfo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.sql.Date;
 import java.time.LocalDate;
 
@@ -13,20 +18,27 @@ public class CommentModel {
     private Long id;
     @Column(name = "comentario_alta")
     private LocalDate creacionComent = LocalDate.now();
-    @Column(length = 20)
+    @Column(length = 200)
     private String comentario;
 
     //relacion con post:
     @ManyToOne
     @JoinColumn(name = "post", referencedColumnName = "id")
+    @JsonIgnoreProperties({"descripcion", "contenido", "creacion" ,"publicado","user"})
+    @NotNull(message = "El comentario tiene que ser relacionado a un post!")
     private PostModel post;
 
     //relacion con usuario:
     @ManyToOne
+    @JoinColumn(name = "autor", referencedColumnName = "id")
+    @JsonIgnoreProperties({"apellido","email","creationDate","ciudad","provincia","pais"})
+    @NotNull(message = "El comentario necesita un usuario!")
     private UserModel autor;
 
 
     // getters and setters
+
+
     public Long getId() {
         return id;
     }
@@ -34,7 +46,6 @@ public class CommentModel {
     public void setId(Long id) {
         this.id = id;
     }
-
 
     public LocalDate getCreacionComent() {
         return creacionComent;
@@ -81,4 +92,9 @@ public class CommentModel {
     public CommentModel() {
         super();
     }
+
+//    @Override
+//    public String toString(){
+//        return "autor: " + this.autor.getNombre();
+//    }
 }

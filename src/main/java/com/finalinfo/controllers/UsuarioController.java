@@ -57,7 +57,6 @@ public class UsuarioController{
     }
 
 
-
     //Para modificar usuario:
     @PutMapping("/{id}")
     public ResponseEntity<?> actualizar(@RequestBody UserModel userUpt, @PathVariable Long id){

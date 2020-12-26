@@ -32,11 +32,6 @@ public class UsuarioService {
     }
 
 
-
-//    public ArrayList<UserModel> obtenerPorPrioridad(Integer prioridad){
-//        return usuarioRepository.findByPrioridad(prioridad);
-//    }
-
     public boolean eliminarUsuario(Long id){
         try{
             usuarioRepository.deleteById(id);

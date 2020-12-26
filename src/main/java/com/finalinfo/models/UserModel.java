@@ -33,9 +33,11 @@ public class UserModel {
 
 	//relacion con post
 	@OneToMany
+	@JsonIgnore
 	private List<PostModel> post;
 	//relacion con comentario
 	@OneToMany
+	@JsonIgnore
 	private List<CommentModel> comment;
 
 	// getters and setters

@@ -1,0 +1,65 @@
+//creacion de posts con metodo post:
+[
+    {
+        "titulo":"Venta de una bici",
+        "descripcion":"Vendo una bicicleta a un buen precio",
+        "contenido":"Hola, les vengo a ofrecer una bicicleta en muy buen estado, casi nueva a $15.000",
+        "publicado":true,
+        "autor":{
+            "id":2
+        }
+    },
+    {
+        "titulo":"Venta de una moto",
+        "descripcion":"Vendo una moto a un buen precio",
+        "contenido":"Hola, les vengo a ofrecer una moto en muy mal estado, a $150.000",
+        "publicado":true,
+        "autor":{
+            "id":1
+        }
+    },
+    {
+        "titulo":"Venta heladera",
+        "descripcion":"Vendo una heladera",
+        "contenido":"la vendo porque me mudo a $25.000",
+        "publicado":true,
+        "autor":{
+            "id":3
+        }
+    },
+    {
+        "titulo":"Venta de ropa",
+        "descripcion":"Vendo ropa el miercoles",
+        "contenido":"el miercoles de 14hs a 18hs en calle false 123",
+        "publicado":false,
+        "autor":{
+            "id":1
+        }
+    },
+    {
+        "titulo":"Casa en venta",
+        "descripcion":"Vendo casa o alquilo",
+        "contenido":"U$D10.000, tratar al 3624112233",
+        "publicado":false,
+        "autor":{
+            "id":2
+        }
+    }
+
+]
+
+/*
+CRUD
+metodo get para ver todos los posts: 
+localhost:8080/api/v1/posts
+
+metodo put para actualizar post:
+localhost:8080/api/v1/posts/{id} y pasar valores
+
+para delete:
+Poner en delete y colocar el id a eliminar --> localhost:8080/api/v1/posts/{id}
+
+
+
+*/
+

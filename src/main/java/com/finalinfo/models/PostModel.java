@@ -1,7 +1,9 @@
 package com.finalinfo.models;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.catalina.User;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
@@ -25,9 +27,12 @@ public class PostModel {
     //con usuario:
     @ManyToOne
     @JoinColumn(name = "autor", referencedColumnName = "id")
+    @NotNull
+    @JsonIgnore
     private UserModel autor;
     //con comentario:
     @OneToMany
+    @JsonIgnore
     private List<CommentModel> comment;
 
     // getters and setters
@@ -119,4 +124,9 @@ public class PostModel {
     public PostModel() {
         super();
     }
+
+//    @Override
+//    public String toString(){
+//        return "Autor:" + autor;
+//    }
 }
